@@ -15,10 +15,10 @@
   --danger-color: #e24ba2;
   --saturation-factor: 1;
   --megu-rotate-duration: 60s;
-  --megu-wallpaper-1: url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/wallpaper.png);
-  --megu-wallpaper-2: url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/wallpaper2.png);
-  --megu-wallpaper-3: url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/wallpaper3.png);
-  --megu-wallpaper-4: url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/wallpaper4.png);
+  --megu-wallpaper-1: url(https://raw.githubusercontent.com/qbekun/MeguCord/refs/heads/main/1.jpg);
+  --megu-wallpaper-2: url(https://raw.githubusercontent.com/qbekun/MeguCord/refs/heads/main/2.jpg);
+  --megu-wallpaper-3: url(https://raw.githubusercontent.com/qbekun/MeguCord/refs/heads/main/3.jpg);
+  --megu-wallpaper-4: url(https://raw.githubusercontent.com/qbekun/MeguCord/refs/heads/main/4.jpg);
   --megu-wallpaper: var(--megu-wallpaper-1);
   --background-image: var(--megu-wallpaper);
   --background-position: center;

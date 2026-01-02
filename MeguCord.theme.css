@@ -1,0 +1,201 @@
+/**
+ * @name MeguCord
+ * @author ilovemegumin
+ * @description めぐみんのDiscordテーマ
+ * @version 3.0.3
+ * @source https://github.com/ilovemegumin/MeguCord
+ */
+@import url("https://clearvision.github.io/ClearVision-v7/main.css");
+@import url("https://clearvision.github.io/ClearVision-v7/betterdiscord.css");
+
+:root {
+  --main-color: #d45df8;
+  --hover-color: #b44cd1;
+  --success-color: #5cf7db;
+  --danger-color: #e24ba2;
+  --saturation-factor: 1;
+  --megu-rotate-duration: 60s;
+  --megu-wallpaper-1: url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/wallpaper.png);
+  --megu-wallpaper-2: url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/wallpaper2.png);
+  --megu-wallpaper-3: url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/wallpaper3.png);
+  --megu-wallpaper-4: url(https://raw.githubusercontent.com/ilovemegumin/MeguCord/refs/heads/main/wallpaper4.png);
+  --megu-wallpaper: var(--megu-wallpaper-1);
+  --background-image: var(--megu-wallpaper);
+  --background-position: center;
+  --background-size: cover;
+  --background-attachment: scroll;
+  --background-filter: saturate(calc(var(--saturation-factor, 1) * 1));
+}
+
+html[data-megu-wallpaper="1"] { --megu-wallpaper: var(--megu-wallpaper-1); --background-image: var(--megu-wallpaper); }
+html[data-megu-wallpaper="2"] { --megu-wallpaper: var(--megu-wallpaper-2); --background-image: var(--megu-wallpaper); }
+html[data-megu-wallpaper="3"] { --megu-wallpaper: var(--megu-wallpaper-3); --background-image: var(--megu-wallpaper); }
+html[data-megu-wallpaper="4"] { --megu-wallpaper: var(--megu-wallpaper-4); --background-image: var(--megu-wallpaper); }
+
+:is(.theme-dark, .theme-light .theme-dark) {
+  --background-shading: rgba(0, 0, 0, 0.45);
+  --card-shading: rgba(0, 0, 0, 0.22);
+  --popout-shading: rgba(0, 0, 0, 0.62);
+  --modal-shading: rgba(0, 0, 0, 0.45);
+  --input-shading: rgba(255, 255, 255, 0.06);
+  --normal-text: #ffffff;
+  --muted-text: #b8a9c0;
+  --interactive-normal: var(--normal-text);
+  --interactive-hover: var(--normal-text);
+  --interactive-active: var(--normal-text);
+  --interactive-muted: var(--muted-text);
+}
+
+:is(.theme-light, .theme-dark .theme-light) {
+  --background-shading: rgba(252, 252, 252, 0.30);
+  --card-shading: rgba(252, 252, 252, 0.30);
+  --popout-shading: rgba(252, 252, 252, 0.70);
+  --modal-shading: rgba(252, 252, 252, 0.50);
+  --input-shading: rgba(0, 0, 0, 0.30);
+  --normal-text: #36363c;
+  --muted-text: #75757e;
+  --interactive-normal: var(--normal-text);
+  --interactive-hover: var(--normal-text);
+  --interactive-active: var(--normal-text);
+  --interactive-muted: var(--muted-text);
+}
+
+html, body { background: transparent !important; }
+
+#app-mount::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-image: linear-gradient(0deg, var(--background-shading), var(--background-shading));
+  background-position: var(--background-position);
+  background-size: var(--background-size);
+  background-attachment: var(--background-attachment);
+  filter: var(--background-filter);
+}
+
+#app-mount,
+[class*="app"],
+[class*="layers"],
+[class*="layer"],
+[class*="container"],
+[class*="bg"],
+[class*="chat"],
+[class*="content"],
+[class*="scroller"],
+[role="main"] {
+  background: transparent !important;
+}
+
+[class*="messages"],
+[class*="chatContent"],
+[class*="chatScroller"],
+[class*="contentRegion"] {
+  background: transparent !important;
+}
+
+[class*="userPopout"],
+[role="dialog"][class*="userProfile"] {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-radius: 20px !important;
+}
+
+a { color: var(--main-color); }
+:focus-visible { outline-color: var(--main-color) !important; }
+button, [role="button"] { accent-color: var(--main-color); }
+
+@media (max-width: 1200px) {
+  [class*="sidebar"],
+  [class*="chat"],
+  [class*="membersWrap"],
+  [class*="panels"],
+  [class*="container"] [class*="content"] {
+    background: linear-gradient(0deg, var(--card-shading), var(--card-shading)) !important;
+    border-radius: 10px;
+  }
+  [class*="rtc"],
+  [class*="voice"],
+  [class*="call"],
+  [class*="video"],
+  [class*="stream"] {
+    position: relative;
+    z-index: 2;
+    background: linear-gradient(0deg, var(--popout-shading), var(--popout-shading)) !important;
+    border-radius: 12px;
+  }
+  [class*="chat"] { position: relative; z-index: 0; }
+}
+
+@media (max-width: 900px) { #app-mount::before { background-attachment: scroll; } }
+
+@media (min-width: 1280px) and (min-height: 800px) {
+  :root { --background-attachment: fixed; }
+}
+
+@keyframes meguCycle {
+  0% { opacity: 0 }
+  5% { opacity: 1 }
+  20% { opacity: 1 }
+  25% { opacity: 0 }
+  100% { opacity: 0 }
+}
+
+html::before,
+body::before,
+body::after,
+#app-mount::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  background-position: var(--background-position);
+  background-size: var(--background-size);
+  background-attachment: var(--background-attachment);
+  filter: var(--background-filter);
+  opacity: 0;
+  animation: meguCycle var(--megu-rotate-duration, 48s) linear infinite both;
+}
+
+html::before { background-image: var(--megu-wallpaper-1); animation-delay: calc(var(--megu-rotate-duration, 48s) * -0); }
+body::before { background-image: var(--megu-wallpaper-2); animation-delay: calc(var(--megu-rotate-duration, 48s) * -0.25); }
+body::after  { background-image: var(--megu-wallpaper-3); animation-delay: calc(var(--megu-rotate-duration, 48s) * -0.5); }
+#app-mount::after { background-image: var(--megu-wallpaper-4); animation-delay: calc(var(--megu-rotate-duration, 48s) * -0.75); }
+
+@media (prefers-reduced-motion: reduce) {
+  html::before, body::before, body::after, #app-mount::after { animation: none; opacity: 1; }
+  body::before, body::after, #app-mount::after { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  button, [role="button"] { transition: transform .12s ease, text-shadow .2s ease, filter .2s ease; }
+  button:hover, [role="button"]:hover { text-shadow: 0 0 6px rgba(212,93,248,.35); filter: saturate(1.06); }
+  [class*="message"] { transition: transform .15s ease, background-color .15s ease; }
+  [class*="message"]:hover { transform: translateY(-1px); }
+
+  [class*="mentioned"] { position: relative; overflow: visible; }
+  [class*="mentioned"]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(212,93,248,.22), transparent) no-repeat -120% 0;
+    background-size: 200% 100%;
+    opacity: 0;
+    pointer-events: none;
+    animation: meguShimmer 2.2s ease-out 1 both;
+  }
+}
+
+input:focus, textarea:focus, [contenteditable="true"]:focus { box-shadow: none !important; outline: none !important; }
+
+@keyframes meguShimmer {
+  0% { background-position: -120% 0; opacity: 0; }
+  30% { opacity: .85; }
+  100% { background-position: 120% 0; opacity: 0; }
+}
+
+.info__2debe::after { content: "MeguCord" "3.0.3" !important; }
+.visual-refresh:not(.platform-osx) .leading_c38106::before { content: "MeguCord" !important; }
+.visual-refresh:not(.platform-osx) .leading_c38106::after { content: "3.0.3" !important; }
